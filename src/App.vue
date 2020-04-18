@@ -3,6 +3,11 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Animations</h1>
+        <hr />
+        <button class="btn btn-primary" @click="show = !show">Show alert</button>
+        <br />
+        <br />
+        <div class="alert alert-info" v-if="show">This is a info alert, check it out!</div>
       </div>
     </div>
   </div>
@@ -11,7 +16,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      show: false
+    };
   }
 };
 </script>
