@@ -13,7 +13,7 @@
         <transition name="slide" type="animation">
           <div class="alert alert-info" v-if="show">This is a info alert, check it out!</div>
         </transition>
-        <transition name="slide" type="animation" appear>
+        <transition appear enter-active-class="animated bounce" leave-active-class="animated shake">
           <div class="alert alert-info" v-if="show">This is a info alert, check it out!</div>
         </transition>
       </div>
