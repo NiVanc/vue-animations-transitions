@@ -7,7 +7,9 @@
         <button class="btn btn-primary" @click="show = !show">Show alert</button>
         <br />
         <br />
-        <div class="alert alert-info" v-if="show">This is a info alert, check it out!</div>
+        <transition name="fade">
+          <div class="alert alert-info" v-if="show">This is a info alert, check it out!</div>
+        </transition>
       </div>
     </div>
   </div>
@@ -24,4 +26,19 @@ export default {
 </script>
 
 <style>
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 1s;
+}
+
+.fade-leave {
+}
+
+.fade-leave-active {
+  transition: opacity 1s;
+  opacity: 0;
+}
 </style>
