@@ -26,6 +26,25 @@
           <div class="alert alert-info" v-if="show">This is a info alert, check it out!</div>
           <div class="alert alert-warning" v-else>This is a warning alert, check it out!</div>
         </transition>
+        <hr />
+        <button class="btn btn-primary" @click="load = !load">Load or remove element</button>
+        <br />
+        <br />
+        <transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @enter-cancelled="enterCancelled"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <div
+            style="width: 100px; height: 100px; background: lightgreen; border: 1px solid green"
+            v-if="load"
+          ></div>
+        </transition>
       </div>
     </div>
   </div>
@@ -35,9 +54,38 @@
 export default {
   data() {
     return {
-      show: true,
+      show: false,
+      load: true,
       animationStyle: "fade"
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log("beforeEnter");
+    },
+    enter(el, done) {
+      console.log("Enter");
+      done();
+    },
+    afterEnter(el) {
+      console.log("afterEnter");
+    },
+    enterCancelled(el) {
+      console.log("enterCancelled");
+    },
+    beforeLeave(el) {
+      console.log("beforeLeave");
+    },
+    leave(el, done) {
+      console.log("Leave");
+      done();
+    },
+    afterLeave(el) {
+      console.log("afterLeave");
+    },
+    leaveCancelled(el) {
+      console.log("leaveCancelled");
+    }
   }
 };
 </script>
